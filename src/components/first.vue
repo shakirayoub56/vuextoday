@@ -3,6 +3,7 @@
 
     <!-- we will get the value from state in the below p tag -->
     <p>{{ $store.state.title}}</p>
+    <h2>{{ privateKey }}   -----    {{ secretKey }}</h2>
     <button @click="clickme">click me</button>
     <child />
 </template>
@@ -12,6 +13,17 @@ export default{
     name:'first',
     components:{
         child
+    },
+    computed:{
+    privateKey(){
+        // return this.$store.getters.hashAdd;
+
+        // 
+        return this.$store.getters.hashnewAdd;
+    },
+    secretKey(){
+        return this.$store.getters.newSecret('123')
+    }
     },
     methods:{
         clickme(){
